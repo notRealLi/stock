@@ -66,7 +66,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard container">
-        <div className="card">
+        <div className="card col s1">
           <div className="card-action">
             <Select
               options={this.state.dataOptions}

@@ -5,19 +5,18 @@ export default (props) => {
   const ds = props.dataSet;
 
   return (
-    <div>
-      <Plot
-        data={[
-          {
-            x: ds.x,
-            y: ds.y,
-            type: "scatter",
-            mode: "lines+markers",
-            marker: { color: "red" }
-          }
-        ]}
-        layout={{ width: 800, height: 600, title: ds.title }}
-      />
-    </div>
+    <Plot
+      data={[
+        {
+          x: ds.x,
+          y: ds.y,
+          type: "scatter",
+          mode: "lines+markers",
+          marker: { color: "red" }
+        }
+      ]}
+      style={{position: 'relative', display: 'inline-block'}}
+      layout={{ autosize: true, title: ds.title }}
+    />
   );
 };
