@@ -1,5 +1,5 @@
 import React from "react";
-import Graph from "./Graph";
+import Plotly from "./graphs/Plotly";
 import Select from "react-select";
 import ds from "api/ds";
 import "./Dashboard.css";
@@ -16,12 +16,12 @@ class Dashboard extends React.Component {
   }
 
   async componentDidMount() {
-    const dataSets = await this.fetchDataSets();
+    const dataSets = await this.fetchDataSetsForPlotly();
     this.setState({ dataSets });
     this.setDataSetOptions();
   }
 
-  fetchDataSets() {
+  fetchDataSetsForPlotly() {
     return Promise.all(
       ds.map(async api => {
         const res = await fetch(api);
@@ -29,6 +29,19 @@ class Dashboard extends React.Component {
         return {
           x: data.data.map(d => d[0]),
           y: data.data.map(d => d[1]),
+          title: data.name
+        };
+      })
+    );
+  }
+
+  fetchDataSetsForVis() {
+    return Promise.all(
+      ds.map(async api => {
+        const res = await fetch(api);
+        const data = (await res.json()).dataset;
+        return {
+          data: data.data.map(d => ({x: new Date(d[0]), y: d[1]})),
           title: data.name
         };
       })
@@ -61,7 +74,7 @@ class Dashboard extends React.Component {
             />
           </div>
           <div className="card-content">
-            <Graph dataSet={this.state.selectedDataset} />
+            <Plotly dataSet={this.state.selectedDataset} />
           </div>
         </div>
       </div>
