@@ -87,7 +87,7 @@ class Dashboard extends React.Component {
             />
           </CardActionArea>
           <CardContent>
-            <Plotly dataSet={this.state.selectedDataset} />
+            Hi
           </CardContent>
         </Card>
       </div>
