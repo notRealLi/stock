@@ -1,7 +1,7 @@
 import React from "react";
 import Plot from "react-plotly.js";
 
-export default (props) => {
+export default props => {
   const ds = props.dataSet;
 
   return (
@@ -15,7 +15,8 @@ export default (props) => {
           marker: { color: "red" }
         }
       ]}
-      style={{position: 'relative', display: 'inline-block'}}
+      useResizeHandler={true}
+      style={{ height: "100%", width: "100%" }}
       layout={{ autosize: true, title: ds.title }}
     />
   );
