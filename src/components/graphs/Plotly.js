@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import Plot from "react-plotly.js";
 
 export default props => {
   const ds = props.dataSet;
-
+  const plotRef = useRef(null);
+  console.log(plotRef);
   return (
     <Plot
+      ref={plotRef}
       data={[
         {
           x: ds.x,
@@ -15,7 +17,7 @@ export default props => {
           marker: { color: "red" }
         }
       ]}
-      useResizeHandler={true}
+      useResizeHandler
       style={{ height: "100%", width: "100%" }}
       layout={{ autosize: true, title: ds.title }}
     />

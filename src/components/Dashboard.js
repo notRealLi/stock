@@ -3,6 +3,7 @@ import Plotly from "./graphs/Plotly";
 import Select from "react-select";
 import ds from "api/ds";
 import "./Dashboard.css";
+import { Card, CardContent, CardActionArea } from "@material-ui/core";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -66,29 +67,29 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="card chart">
-          <div className="card-action">
+        <Card className="card chart">
+          <CardActionArea>
             <Select
               options={this.state.dataOptions}
               onChange={this.handleDatasetChange.bind(this)}
             />
-          </div>
-          <div className="card-content">
+          </CardActionArea>
+          <CardContent>
             <Plotly dataSet={this.state.selectedDataset} />
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        <div className="card activity">
-          <div className="card-action">
+        <Card className="card activity">
+          <CardActionArea>
             <Select
               options={this.state.dataOptions}
               onChange={this.handleDatasetChange.bind(this)}
             />
-          </div>
-          <div className="card-content">
-            Hello
-          </div>
-        </div>
+          </CardActionArea>
+          <CardContent>
+            <Plotly dataSet={this.state.selectedDataset} />
+          </CardContent>
+        </Card>
       </div>
     );
   }
