@@ -65,8 +65,8 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="dashboard container">
-        <div className="card col s1">
+      <div className="dashboard">
+        <div className="card chart">
           <div className="card-action">
             <Select
               options={this.state.dataOptions}
@@ -75,6 +75,18 @@ class Dashboard extends React.Component {
           </div>
           <div className="card-content">
             <Plotly dataSet={this.state.selectedDataset} />
+          </div>
+        </div>
+
+        <div className="card activity">
+          <div className="card-action">
+            <Select
+              options={this.state.dataOptions}
+              onChange={this.handleDatasetChange.bind(this)}
+            />
+          </div>
+          <div className="card-content">
+            Hello
           </div>
         </div>
       </div>
