@@ -42,7 +42,7 @@ class Dashboard extends React.Component {
         const res = await fetch(api);
         const data = (await res.json()).dataset;
         return {
-          data: data.data.map(d => ({x: new Date(d[0]), y: d[1]})),
+          data: data.data.map(d => ({ x: new Date(d[0]), y: d[1] })),
           title: data.name
         };
       })
@@ -53,7 +53,7 @@ class Dashboard extends React.Component {
     this.setState({
       dataOptions: this.state.dataSets.map((ds, idx) => ({
         value: idx,
-        label:ds.title
+        label: ds.title
       }))
     });
   }
@@ -81,14 +81,9 @@ class Dashboard extends React.Component {
 
         <Card className="card activity">
           <CardActionArea>
-            <Select
-              options={this.state.dataOptions}
-              onChange={this.handleDatasetChange.bind(this)}
-            />
+            <Select />
           </CardActionArea>
-          <CardContent>
-            Hi
-          </CardContent>
+          <CardContent>Hi</CardContent>
         </Card>
       </div>
     );

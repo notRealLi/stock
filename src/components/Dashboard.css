@@ -1,7 +1,7 @@
 .dashboard {
   display: flex;
   flex-direction: row;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -10,11 +10,11 @@
 }
 
 .chart {
-  flex-basis: 100px;
+  flex-basis: 500px;
   flex-grow: 5;
 }
 
 .activity {
-  flex-basis: 50px;
+  flex-basis: 250px;
   flex-grow: 2;
 }
